@@ -8,7 +8,6 @@ import {
   CryptoCurrenciesResponseSchema,
   CryptoCurrentPriceSchema
 } from '../schema/crypto.schema'
-// import { useSliceStore } from '@/hooks/useSliceStore'
 
 export const getCryptos = async (): Promise<CryptoCurrenciesResponseType> => {
   const {

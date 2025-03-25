@@ -1,6 +1,4 @@
 import { SliceStore } from '@/stores/slices/slice.store'
-import { Slice } from 'lucide-react'
-import { useEffect } from 'react'
 
 export const useSliceStore = () => {
   const currency = SliceStore(state => state.currency)
