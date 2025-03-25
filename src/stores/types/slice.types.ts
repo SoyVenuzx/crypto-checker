@@ -1,18 +1,14 @@
-import { CryptoCurrenciesResponseType } from '@/interfaces/crypto.interface'
-
+import { CryptoCurrentPriceResponseType } from '../../interfaces/crypto.interface'
 export type SliceStoreType = {
   currency: string
   crypto: string
-  cryptos: CryptoCurrenciesResponseType
+  cryptoName: string
   detailsFlag: boolean
-  quote: string
-  higherPrice: string
-  lowerPrice: string
-  variation: string
-  lastUpdate: string
+  cryptoDetails: CryptoCurrentPriceResponseType
   setCurrency: (currency: string) => void
   setCrypto: (crypto: string) => void
-  setCryptos: (cryptos: CryptoCurrenciesResponseType) => void
   setDetailsFlag: (value: boolean) => void
   resetApp: () => void
+  setCryptoDetails: (cryptoDetails: CryptoCurrentPriceResponseType) => void
+  setCryptoName: (cryptoName: string) => void
 }

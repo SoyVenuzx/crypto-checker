@@ -1,4 +1,5 @@
 import { SliceStore } from '@/stores/slices/slice.store'
+import { Slice } from 'lucide-react'
 import { useEffect } from 'react'
 
 export const useSliceStore = () => {
@@ -6,21 +7,25 @@ export const useSliceStore = () => {
   const setCurrency = SliceStore(state => state.setCurrency)
   const crypto = SliceStore(state => state.crypto)
   const setCrypto = SliceStore(state => state.setCrypto)
-  const cryptos = SliceStore(state => state.cryptos)
-  const setCryptos = SliceStore(state => state.setCryptos)
   const detailsFlag = SliceStore(state => state.detailsFlag)
   const setDetailsFlag = SliceStore(state => state.setDetailsFlag)
   const resetApp = SliceStore(state => state.resetApp)
+  const cryptoDetails = SliceStore(state => state.cryptoDetails)
+  const setCryptoDetails = SliceStore(state => state.setCryptoDetails)
+  const cryptoName = SliceStore(state => state.cryptoName)
+  const setCryptoName = SliceStore(state => state.setCryptoName)
 
   return {
     currency,
     setCurrency,
     crypto,
     setCrypto,
-    cryptos,
-    setCryptos,
     detailsFlag,
     setDetailsFlag,
-    resetApp
+    resetApp,
+    cryptoDetails,
+    setCryptoDetails,
+    cryptoName,
+    setCryptoName
   }
 }

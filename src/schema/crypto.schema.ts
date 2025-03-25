@@ -15,3 +15,12 @@ export const CryptoCurrencyResponseSchema = z.object({
 export const CryptoCurrenciesResponseSchema = z.array(
   CryptoCurrencyResponseSchema
 )
+
+export const CryptoCurrentPriceSchema = z.object({
+  IMAGEURL: z.string(),
+  PRICE: z.string(),
+  HIGHDAY: z.string(),
+  LOWDAY: z.string(),
+  CHANGEPCT24HOUR: z.string(),
+  LASTUPDATE: z.string()
+})

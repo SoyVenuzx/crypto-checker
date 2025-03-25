@@ -9,7 +9,7 @@ import { ErrorMessage } from '../ErrorMessage'
 export const CardForm = () => {
   const { error, handleChangeCurrency, handleChangeCrypto, handleSubmit } =
     useCardForm()
-  const { currency, crypto } = useSliceStore()
+  const { currency, crypto, cryptoName } = useSliceStore()
   const { cryptos } = useCryptos()
 
   return (
@@ -59,6 +59,7 @@ export const CardForm = () => {
               <select
                 id='crypto'
                 value={crypto}
+                name={cryptoName}
                 onChange={handleChangeCrypto}
                 className='w-full p-3 text-sm border rounded-lg appearance-none bg-neutral-100 dark:bg-neutral-800 border-neutral-200 dark:border-neutral-700 text-neutral-900 dark:text-white'
               >

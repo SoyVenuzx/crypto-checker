@@ -3,8 +3,14 @@ import { useSliceStore } from './useSliceStore'
 import { sleep } from '@/lib/utils'
 
 export const useCardForm = () => {
-  const { crypto, currency, setCurrency, setCrypto, setDetailsFlag } =
-    useSliceStore()
+  const {
+    crypto,
+    currency,
+    setCurrency,
+    setCrypto,
+    setDetailsFlag,
+    setCryptoName
+  } = useSliceStore()
   const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -26,8 +32,9 @@ export const useCardForm = () => {
   }
 
   const handleChangeCrypto = ({
-    target: { value }
+    target: { value, options, selectedIndex }
   }: React.ChangeEvent<HTMLSelectElement>) => {
+    setCryptoName(options[selectedIndex].text)
     setCrypto(value)
   }
 

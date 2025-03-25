@@ -2,6 +2,7 @@ import { create } from 'zustand'
 import { devtools, persist } from 'zustand/middleware'
 import { SliceStoreType } from '../types/slice.types'
 import { stateInitialData } from '@/data'
+import { CryptoCurrentPriceResponseType } from '@/interfaces/crypto.interface'
 
 export const SliceStore = create<SliceStoreType>()(
   devtools(
@@ -9,22 +10,26 @@ export const SliceStore = create<SliceStoreType>()(
       set => ({
         currency: '',
         crypto: '',
-        cryptos: [],
+        cryptoName: '',
         detailsFlag: false,
-        quote: '',
-        higherPrice: '',
-        lowerPrice: '',
-        variation: '',
-        lastUpdate: '',
+        cryptoDetails: {} as CryptoCurrentPriceResponseType,
         setCurrency: currency => set({ currency }),
         setCrypto: crypto => set({ crypto }),
-        setCryptos: cryptos => set({ cryptos }),
         setDetailsFlag: value => set({ detailsFlag: value }),
-        resetApp: () => set(stateInitialData)
+        resetApp: () => set(stateInitialData),
+        setCryptoDetails: cryptoDetails => {
+          set({ cryptoDetails })
+        },
+        setCryptoName: cryptoName => set({ cryptoName })
       }),
       {
         name: 'slice-store',
-        partialize: state => ({ state: state })
+        partialize: state => ({
+          currency: state.currency,
+          crypto: state.crypto,
+          cryptoDetails: state.cryptoDetails,
+          detailsFlag: state.detailsFlag
+        })
       }
     )
   )

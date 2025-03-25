@@ -1,9 +1,6 @@
-import { useSliceStore } from '@/hooks/useSliceStore'
 import { motion } from 'framer-motion'
 
 export const CardTitle = () => {
-  const { detailsFlag } = useSliceStore()
-
   return (
     <>
       {/* Enhanced Title */}

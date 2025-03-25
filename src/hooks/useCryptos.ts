@@ -8,7 +8,7 @@ export const useCryptos = () => {
     isLoading
   } = useQuery({
     queryKey: ['crypto'],
-    queryFn: () => getCryptos(),
+    queryFn: getCryptos,
     staleTime: 1000 * 60 * 60
   })
 
