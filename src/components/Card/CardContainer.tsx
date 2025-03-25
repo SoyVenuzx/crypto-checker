@@ -2,21 +2,26 @@ import { motion } from 'framer-motion'
 import { CardForm } from './CardForm'
 import { useEffect } from 'react'
 import { CardDetails } from './CardDetails'
+import { CardTitle } from './CardTitle'
+import { useSliceStore } from '@/hooks/useSliceStore'
 
 export const MainCard = () => {
+  const { detailsFlag } = useSliceStore()
+
   useEffect(() => window.scrollTo(0, 0), [])
 
   return (
     <>
-      <div className='relative z-20 container mx-auto px-4 md:px-6 py-16 flex flex-col items-center overflow-hiiden'>
+      <div className='container relative z-20 flex flex-col items-center px-4 py-16 mx-auto md:px-6 overflow-hiiden'>
+        <CardTitle />
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className='min-w-[700px] w-full max-w-lg bg-white dark:bg-neutral-900 rounded-xl shadow-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden mt-20'
+          className='min-w-[700px] w-full max-w-lg bg-white dark:bg-neutral-900 rounded-xl shadow-xl border border-neutral-200 dark:border-neutral-800 overflow-hidden mt-10'
         >
           <CardForm />
-          <CardDetails />
+          {detailsFlag && <CardDetails />}
         </motion.div>
       </div>
     </>
